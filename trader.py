@@ -22,6 +22,8 @@ if __name__ == '__main__':
     parser.add_argument('--increasing', type=float, help='Buy Price +Increasing (0.00000001)', default=0.00000001)
     parser.add_argument('--decreasing', type=float, help='Sell Price -Decreasing (0.00000001)', default=0.00000001)
 
+    parser.add_argument('--sell_order_type', type=str, help='Sell order type execution (Market or Limit)', default='limit')
+    parser.add_argument('--buy_order_type', type=str, help='Buy order type execution (Market or Limit)', default='limit')
     # Manually defined --orderid try to sell 
     parser.add_argument('--orderid', type=int, help='Target Order Id (use balance.py)', default=0)
 

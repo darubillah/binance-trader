@@ -59,7 +59,10 @@ class Trading():
         self.increasing = self.option.increasing
         self.decreasing = self.option.decreasing
 
-        # BTC amount
+        self.sell_order_type = self.option.sell_order_type
+        self.buy_order_type = self.option.buy_order_type
+
+        # Trading amount
         self.amount = self.option.amount
 
     def buy(self, symbol, quantity, buyPrice):
@@ -70,7 +73,10 @@ class Trading():
         try: 
 
             # Create order
-            orderId = Orders.buy_limit(symbol, quantity, buyPrice)
+            if self.buy_order_type == 'limit':
+                orderId = Orders.buy_limit(symbol, quantity, buyPrice)
+            else:
+                orderId = Orders.buy_market(symbol, quantity, buyPrice)
                 
             # Database log
             Database.write([orderId, symbol, 0, buyPrice, 'BUY', quantity, self.option.profit])
@@ -110,7 +116,11 @@ class Trading():
                 self.order_id = 0
                 return
 
-        sell_order = Orders.sell_limit(symbol, quantity, sell_price)  
+        if self.sell_order_type == 'limit':
+            sell_order = Orders.sell_limit(symbol, quantity, sell_price)  
+        else:
+            sell_order = Orders.sell_market(symbol, quantity, sell_price)  
+
 
         sell_id = sell_order['orderId']
         print('Sell order create id: %d' % sell_id)
@@ -195,7 +205,10 @@ class Trading():
                             self.cancel(symbol, sell_id)
                             return False
                 else:
-                    sello = Orders.sell_limit(symbol, quantity, lossprice)
+                    if self.sell_order_type == 'limit':
+                        sello = Orders.sell_limit(symbol, quantity, lossprice)
+                    else:
+                        sello = Orders.sell_market(symbol, quantity, lossprice)
                     print('Stop-loss, sell limit, %s' % (lossprice))
                     time.sleep(self.WAIT_TIME_STOP_LOSS)
                     statusloss = sello['status']
