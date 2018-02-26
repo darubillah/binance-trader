@@ -53,17 +53,19 @@ This is an experimental bot for auto trading the binance.com exchange. [@yasinku
     or by amount
     python trader.py --symbol XVGBTC --mode range --amount 0.0022 --buyprice 0.00000780 --sellprice 0.00000790
     
-    --quantity     Buy/Sell Quantity (default 0) (If zero, auto calc)
-    --amount       Buy/Sell BTC Amount (default 0)
-    --symbol       Market Symbol (default XVGBTC or XVGETH)
-    --profit       Target Profit Percentage (default 1.3)
-    --stop_loss    Decrease sell price at loss Percentage (default 0)
-    --orderid      Target Order Id (default 0)
-    --wait_time    Wait Time (seconds) (default 0.7)
-    --increasing   Buy Price Increasing  +(default 0.00000001)
-    --decreasing   Sell Price Decreasing -(default 0.00000001)
-    --prints       Scanning Profit Screen Print (default True)
-    --loop         Loop (default 0 unlimited)
+    --quantity          Buy/Sell Quantity (default 0) (If zero, auto calc)
+    --amount            Buy/Sell BTC Amount (default 0)
+    --symbol            Market Symbol (default XVGBTC or XVGETH)
+    --profit            Target Profit Percentage (default 1.3)
+    --stop_loss         Decrease sell price at loss Percentage (default 0)
+    --orderid           Target Order Id (default 0)
+    --wait_time         Wait Time (seconds) (default 0.7)
+    --increasing        Buy Price Increasing  +(default 0.00000001)
+    --decreasing        Sell Price Decreasing -(default 0.00000001)
+    --prints            Scanning Profit Screen Print (default True)
+    --loop              Loop (default 0 unlimited)
+    --buy_order_type    Change order execution - limit or market (default limit)
+    --sell_order_type   Change order execution - limit or market (default limit)
     
     --mode         Working modes profit or range (default profit)
                    profit: Profit Hunter. Find defined profit, buy and sell. (Ex: 1.3% profit)
@@ -95,6 +97,14 @@ This is an experimental bot for auto trading the binance.com exchange. [@yasinku
 
     docker run trader
  
+## Tip the fork maintainers
+    BTC 36HyrBuZU4ZfaP7fo58abm7ryp2qtmRoC2
+    ETH 0xb30d4977DC307617cFD1F4d55cE969316d7b44E2
+    NEO AUQ1vfwpycjXTf5gq3F4fKinRL6xfhB1em
+    XRP rN3871uxDiGt3hfaPXe2x31EbKAzHY5Bqj
+    ETC 0x0B600A27ebD06A3820acfEC2E277E61b9297850b
+    BCH 1PogvRYk9vNwghSGzhuANRFYM2ppqLPqG7
+    
 ## DISCLAIMER
 
     I am not responsible for anything done with this bot. 
@@ -111,11 +121,6 @@ This is an experimental bot for auto trading the binance.com exchange. [@yasinku
     
     Thanks all for your contributions...
     
-    Contributors
-        @WeSpeakCrypto
-        @afoke
-        @omerfarukz
-        @plgonzalezrx8
     
 ## Troubleshooting
 
